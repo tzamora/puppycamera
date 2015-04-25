@@ -3,11 +3,12 @@
 <head>
     <title>Hello React</title>
     <link rel="stylesheet" href="materialize/css/materialize.css" />
+    <link rel="stylesheet" href="css/styles.css" />
     <script src="http://fb.me/react-0.12.2.js"></script>
     <script src="http://fb.me/JSXTransformer-0.12.2.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
-    <link rel="stylesheet" href="materialize/js/materialize.js" />
+    <script src="materialize/js/materialize.js"></script>
 </head>
 <body>
 <div id="content">
@@ -21,10 +22,10 @@
         render: function(){
 
             return (
-                    <div className="rootBox">
-                        <HeaderBox></HeaderBox>
-                        <CommentBox data={this.props.data} />
-                    </div>
+                <div className="rootBox">
+                    <HeaderBox></HeaderBox>
+                    <CommentBox data={this.props.data} />
+                </div>
             );
 
         }
@@ -77,7 +78,19 @@
 
             };
 
+            var days = 12;
+
             var commentNodes = this.props.data.map(function(comment){
+
+                var heartButtonStyle = {
+                    position: 'absolute',
+                    bottom:'10px',
+                    left:'10px',
+                    width:'35px',
+                    height:'35px',
+                    backgroundImage: 'url(images/solid-black-heart-md.png)',
+                    backgroundSize: '35px 35px'
+            };
 
                 return (
 
@@ -86,10 +99,10 @@
                             <div className="card z-depth-2">
                                 <div className="card-image ">
                                     <img src={comment.imageURL} />
+                                    <a style={daysCounterButton} className="waves-effect waves-light btn m">{days} dias</a>
+                                    <div style={heartButtonStyle} >
 
-                                    <a style={daysCounterButton} className="waves-effect waves-light btn m">Stuff</a>
-
-
+                                    </div>
                                 </div>
                                 <div className="card-content">
                                     <Comment author={comment.author}>
