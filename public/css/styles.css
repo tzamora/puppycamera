@@ -1,0 +1,9 @@
+.card .card-image img .heart{
+
+    position: absolute;
+    bottom:10px;
+    left:10px;
+    width:35px;
+    height:35px;
+
+}
